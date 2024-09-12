@@ -1,0 +1,27 @@
+services:
+  flask_app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - POSTGRES_USERNAME=cnrprod1725782375-team-77723
+      - POSTGRES_PASSWORD=cnrprod1725782375-team-77723
+      - POSTGRES_DATABASE=cnrprod1725782375-team-77723
+      - POSTGRES_PORT=6432
+      - POSTGRES_HOST=rc1b-5xmqy6bq501kls4m.mdb.yandexcloud.net
+      - POSTGRES_CONN=postgresql://cnrprod1725782375-team-77723:cnrprod1725782375-team-77723@rc1b-5xmqy6bq501kls4m.mdb.yandexcloud.net:6432/cnrprod1725782375-team-77723
+#    depends_on:
+#      - db
+#  db:
+#    container_name: db
+#    image: postgres:13
+#    environment:
+#      POSTGRES_USERNAME: cnrprod1725782375-team-77723
+#      POSTGRES_PASSWORD: cnrprod1725782375-team-77723
+#      POSTGRES_DATABASE: cnrprod1725782375-team-77723
+#    ports:
+#      - "6432:6432"
+#    volumes:
+#      - pgdata:/var/lib/postgresql/data
+#volumes:
+#  pgdata: {}
