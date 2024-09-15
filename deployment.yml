@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-api
+  namespace: cnrprod1725782375-team-77723
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-api
+  template:
+    metadata:
+      labels:
+        app: flask-api
+    spec:
+      containers:
+      - name: flask-api
+        image: kalyuzhin/avitotesttask2024
+        ports:
+        - containerPort: 8080

@@ -1,5 +1,4 @@
 from flask import request, jsonify, Blueprint, make_response
-from sqlalchemy.testing.pickleable import User
 
 from .models import *
 
@@ -9,6 +8,16 @@ main = Blueprint('main', __name__)
 @main.route('/api/ping', methods=['GET'])
 def ping():
     return make_response('OK', 200)
+
+
+@main.route('/api/test_db_connection')
+def test_db_connection():
+    try:
+        # Execute a simple query
+        db.session.execute('SELECT 1')
+        return "Connected to the database successfully!", 200
+    except Exception as e:
+        return f"Failed to connect to the database: {str(e)}", 500
 
 
 # @main.route('/api/employee/new', methods=['POST'])
